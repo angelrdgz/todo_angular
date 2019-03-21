@@ -10,7 +10,7 @@ https://github.com/angelrdgz/todo_node.git
 
 #Database
 
-For this project with use a mysql database, located in the root of this project. You need to import to the database manager.
+For this project with use a mysql database, located in the root of this project (learnit.sql). You need to import to the database manager.
 
 *If you use Mac os (MAMP), you need to include the socket for connect Node Js with mysql
 
