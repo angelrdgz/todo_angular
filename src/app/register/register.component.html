@@ -1,0 +1,30 @@
+<h2 class="text-center">My Todo List App</h2>
+<br>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Full Name</mat-label>
+    <input matInput placeholder="">
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="">
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput placeholder="">
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Confirm Password</mat-label>
+    <input type="password" matInput placeholder="">
+  </mat-form-field>
+</p>
+<button mat-raised-button color="primary" (click)="register()">Create Account</button>
+<p>
+  <a mat-button routerLink="/login">Login</a>
+</p>

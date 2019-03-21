@@ -1,0 +1,20 @@
+mat-form-field{
+  width: 100%;
+}
+.row{
+  div{
+    &:last-child{
+     button.delete{
+       color: red;
+       display: none;
+     }
+    }
+  }
+
+  &:hover{
+
+    .delete{
+      display: block !important;
+    }
+  }
+}

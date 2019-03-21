@@ -1,0 +1,30 @@
+
+<div class="example-container">
+  <div class="row">
+    <div class="col-sm-10">
+      <h1>My Todo List</h1>
+    </div>
+    <div class="col-sm-2">
+      <button mat-raised-button color="primary" (click)="openDialog()">New Task</button>
+    </div>
+  </div>
+  <mat-form-field>
+    <input matInput placeholder="Search a task" name="search" [(ngModel)]="searchText">
+  </mat-form-field>
+</div>
+<div *ngFor="let task of tasks | grdFilter: {title: searchText, description:searchText}" [className]="task.completed ? 'row finish' : 'row'"  (dblclick)="editTask(task.id)">
+  <div class="col-sm-2">
+    <mat-checkbox [(ngModel)]="task.completed" (click)="toggleTask(task.id)"></mat-checkbox>
+  </div>
+  <div class="col-sm-8">
+    <h3 mat-line> {{ task.title }} </h3>
+    <p mat-line>
+      <span> Last update:  {{task.updated_at | date}}</span>
+    </p>
+  </div>
+  <div class="col-sm-1">
+    <button mat-icon-button class="delete" (click)="deleteTask(task.id)">
+      <mat-icon class="mat-48">delete</mat-icon>
+    </button>
+  </div>
+</div>
