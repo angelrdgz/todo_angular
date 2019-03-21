@@ -2,26 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
 
-## Development server
+#API Backedn
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To connect Angular project with the API i created other Github repo, you can download/clone with the next link:
 
-## Code scaffolding
+https://github.com/angelrdgz/todo_node.git
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#Database
 
-## Build
+For this project with use a mysql database, located in the root of this project. You need to import to the database manager.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+*If you use Mac os (MAMP), you need to include the socket for connect Node Js with mysql
 
-## Running unit tests
+Maybe when you download the projects. you can have problems with de node version, to resolve this problem you need to remove node_modelus folder for the both project ad run the next command to build again the build:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+npm install
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+after that the projects will be connected and ready to be test.
