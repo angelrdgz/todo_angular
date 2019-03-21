@@ -15,7 +15,7 @@ const routes: Routes = [
         path: '',
         component: SiteLayoutComponent,
         children: [
-          { path: 'login', component: LoginComponent},
+          { path: '', component: LoginComponent},
           { path: 'register', component: RegisterComponent},
         ]
     },

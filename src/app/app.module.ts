@@ -72,6 +72,7 @@ import { AuthGuard } from './auth.guard';
   ],
   providers: [ApiService,AuthService,AuthGuard],
   bootstrap: [AppComponent],
-  exports:[ EditComponent ]
+  exports:[ NewComponent ],
+  entryComponents: [NewComponent]
 })
 export class AppModule { }

@@ -36,8 +36,13 @@ export class ApiService {
     };
   }
 
-  getTasks(): Observable<any> {
-    return this.httpClient.get(endpoint + 'tasks').pipe(
+  getTasks(id): Observable<any> {
+    return this.httpClient.get(endpoint + 'tasks', {user_id:id}).pipe(
+      map(this.extractData));
+  }
+
+  getUserTasks(id): Observable<any> {
+    return this.httpClient.get(endpoint + 'user-tasks/'+id).pipe(
       map(this.extractData));
   }
 

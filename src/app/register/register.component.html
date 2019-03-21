@@ -3,25 +3,25 @@
 <p>
   <mat-form-field appearance="outline">
     <mat-label>Full Name</mat-label>
-    <input matInput placeholder="">
+    <input matInput placeholder="" [(ngModel)]="user.name">
   </mat-form-field>
 </p>
 <p>
   <mat-form-field appearance="outline">
     <mat-label>Email</mat-label>
-    <input matInput placeholder="">
+    <input matInput placeholder=""[(ngModel)]="user.email">
   </mat-form-field>
 </p>
 <p>
   <mat-form-field appearance="outline">
     <mat-label>Password</mat-label>
-    <input type="password" matInput placeholder="">
+    <input type="password" matInput placeholder=""[(ngModel)]="user.password">
   </mat-form-field>
 </p>
 <p>
   <mat-form-field appearance="outline">
     <mat-label>Confirm Password</mat-label>
-    <input type="password" matInput placeholder="">
+    <input type="password" matInput placeholder=""[(ngModel)]="user.confirm">
   </mat-form-field>
 </p>
 <button mat-raised-button color="primary" (click)="register()">Create Account</button>

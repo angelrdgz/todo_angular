@@ -2,11 +2,13 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ApiService } from '../../api.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { NewComponent } from '../new/new.component';
-import { EditComponent } from '../edit/edit.component';
 
 export interface DialogData {
-  title: string;
-  description: string;
+  id:number,
+  title:string,
+  description:string,
+  completed:boolean,
+  user_id:number
 }
 
 @Component({
@@ -21,17 +23,26 @@ export class TasksListComponent implements OnInit {
   description: string;
   searchText:string;
   current_task:number;
+  last_id:number;
+
+  user:any;
+
 
   constructor(
     private apiService: ApiService,
     public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.getTasks();
+    if (localStorage.getItem('user')) {
+      this.user = JSON.parse(localStorage.getItem('user'))
+      this.getTasks();
+    }
+
+
   }
 
   getTasks(){
-    this.apiService.getTasks().subscribe((data: {}) => {
+    this.apiService.getUserTasks(this.user.id).subscribe((data: {}) => {
       this.tasks = data;
       console.log(data)
     });
@@ -43,7 +54,7 @@ export class TasksListComponent implements OnInit {
         this.current_task = i;
         const dialogRef = this.dialog.open(NewComponent, {
           width: '450px',
-          data: {id:id, title: this.tasks[i].title, description: this.tasks[i].description, completed: false}
+          data: {id:id, title: this.tasks[i].title, user_id:this.user.id, description: this.tasks[i].description, completed: false}
         });
 
         dialogRef.afterClosed().subscribe(result => {
@@ -76,6 +87,8 @@ export class TasksListComponent implements OnInit {
   }
 
   openDialog(): void {
+
+
     const newDialogRef = this.dialog.open(NewComponent, {
       width: '450px',
       data: {id:'', title: this.title, description: this.description, completed: false}
@@ -85,10 +98,12 @@ export class TasksListComponent implements OnInit {
 
         if(result !== undefined){
           if(result.title != '' && result.description != ''){
+            result.user_id = this.user.id;
             this.apiService.newTask(result).subscribe((data: {}) => {
-              console.log(data);
-              this.tasks.push({id:data,title: result.title,description: result.description,updated_at:Date.now(),completed: false});
+              this.last_id = data;
             })
+            this.tasks.push({id:this.last_id, user_id: this.user.id, title: result.title,description: result.description,updated_at:Date.now(),completed: false});
+
           }
         }
 

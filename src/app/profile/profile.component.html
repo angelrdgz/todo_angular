@@ -1,12 +1,16 @@
 <h1 class="text-center">My Profile</h1>
 <div class="example-container">
   <mat-form-field>
-    <input matInput placeholder="Name">
+    <input matInput placeholder="Name" [(ngModel)]="user.name" readonly>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Email">
+    <input matInput placeholder="Email" [(ngModel)]="user.email" readonly>
   </mat-form-field>
-  <mat-form-field>
-    <input matInput type="password" placeholder="Password">
-  </mat-form-field>
+  <!--<mat-form-field>
+    <input matInput type="password" placeholder="Password" [(ngModel)]="user[0].password">
+  </mat-form-field>-->
+
+  <button routerLink="/app/tasks" mat-raised-button color="primary">Tasks</button>
+  <br>
+  <button mat-raised-button color="warn" (click)="logout()">Log Out</button>
 </div>
